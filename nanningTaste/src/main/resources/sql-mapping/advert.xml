@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.adc.nt.dao.AdvertDao">
+    <resultMap id="advertMap" type="com.adc.nt.model.Advert">
+        <id column="a_id" property="a_id"/>
+        <id column="s_id" property="s_id"/>
+        <result column="a_title" property="a_title"/>
+        <result column="a_img" property="a_img"/>
+    </resultMap>
+
+    <select id="countCommon" parameterType="com.adc.nt.model.Advert" resultType="int">
+        SELECT COUNT(1) FROM tb_advertising WHERE a_id = #{a_id}
+    </select>
+    <!--按id查找-->
+    <select id="getAdvertById" resultMap="advertMap">
+        SELECT * FROM tb_advertising WHERE a_id = #{a_id}
+    </select>
+    <!--查找所有-->
+    <select id="allAdvert" resultMap="advertMap">
+        SELECT * FROM tb_advertising
+    </select>
+</mapper>

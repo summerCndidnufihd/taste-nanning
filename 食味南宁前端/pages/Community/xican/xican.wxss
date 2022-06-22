@@ -1,0 +1,19 @@
+/* pages/xican/xican.wxss */
+
+
+
+.ui{
+  display: flex;
+  width: 400rpx;
+  height: 100rpx;
+}
+
+.color{
+  color:rgb(251, 255, 11)
+}
+
+.image{
+  display: flex;
+width:600rpx;
+height: 650rpx;
+}

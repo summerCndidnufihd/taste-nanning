@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.adc.nt.dao.DynamicDao">
+    <resultMap id="dynamicMap" type="com.adc.nt.model.Dynamic">
+        <id column="d_id" property="d_id"/>
+        <id column="u_id" property="u_id"/>
+        <result column="d_date" property="d_date"/>
+        <result column="d_tag" property="d_tag"/>
+        <!--
+        <result column="d_menu" property="d_menu"/>
+        <result column="d_location" property="d_location"/>
+        -->
+        <result column="d_details" property="d_details"/>
+        <result column="d_status" property="d_status"/>
+        <result column="d_img" property="d_img"/>
+    </resultMap>
+
+    <!--查找所有-->
+    <select id="allDynamic" resultMap="dynamicMap">
+        SELECT * FROM tb_dynamic
+    </select>
+    <!--查找动态-->
+    <select id="getDynamicById" resultMap="dynamicMap">
+        SELECT * FROM tb_dynamic WHERE d_id = #{d_id}
+    </select>
+    <select id="getDynamicByStatus" resultMap="dynamicMap">
+        SELECT * FROM tb_dynamic WHERE d_status='未审核'
+    </select>
+    <!--审核动态-->
+    <update id="checkDynamic" parameterType="com.adc.nt.model.Dynamic">
+        update tb_dynamic SET d_status=#{d_status} WHERE d_id = #{d_id}
+    </update>
+    <select id="checkNoDynamic" resultMap="dynamicMap">
+        SELECT * FROM tb_dynamic WHERE d_status='未通过'
+    </select>
+    <select id="checkYesDynamic" resultMap="dynamicMap">
+        SELECT * FROM tb_dynamic WHERE d_status='已通过'
+    </select>
+    <!---根据id删除-->
+    <delete id="delDynamic"  parameterType="int">
+        delete FROM tb_dynamic WHERE d_id = #{d_id}
+    </delete>
+</mapper>

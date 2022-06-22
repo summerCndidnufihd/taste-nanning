@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "SearchInput":"../../../../../components/SearchInput/SearchInput",
+    "waterFallView": "../../../../../components/WaterFallView/WaterFallView",
+    "brickLayout": "plugin://brickLayout/brickLayout"
+  }
+}

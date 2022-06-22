@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.adc.nt.dao.StoreDao">
+    <resultMap id="storeMap" type="com.adc.nt.model.Store">
+        <id column="s_id" property="s_id"/>
+        <result column="storeName" property="storeName"/>
+        <result column="storeTag" property="storeTag"/>
+        <result column="s_location" property="s_location"/>
+        <result column="s_img" property="s_img"/>
+        <result column="s_price" property="s_price"/>
+    </resultMap>
+
+    <select id="countCommon" parameterType="com.adc.nt.model.Store" resultType="int">
+        SELECT COUNT(1) from tb_store WHERE storeName = #{storeName}
+    </select>
+
+    <!--添加商家-->
+    <insert id="addStore" parameterType="com.adc.nt.model.Store">
+        INSERT INTO tb_store (storeName,storeTag,s_location,s_img,s_price)
+        VALUES (#{storeName},#{storeTag},#{s_location},#{s_img},#{s_price})
+    </insert>
+
+    <!--通过Id删除商家-->
+    <delete id="deleteStoreById" parameterType="com.adc.nt.model.Store">
+        DELETE FROM tb_store where s_id = #{s_id}
+    </delete>
+
+    <!--获取所有商家信息-->
+    <select id="getAllStoreList" resultMap="storeMap">
+        SELECT * FROM tb_store
+    </select>
+
+    <!--通过商家名字模糊查询-->
+    <select id="getStoreListByName" resultMap="storeMap">
+        SELECT * FROM tb_store WHERE storeName like concat('%',#{storeName},'%')
+    </select>
+
+    <!--通过Id获取商家信息-->
+    <select id="getStoreListById" resultMap="storeMap">
+        SELECT * FROM tb_store WHERE s_id = #{s_id}
+    </select>
+
+    <!--修改商家信息-->
+    <update id="alterStore" parameterType="com.adc.nt.model.Store">
+        UPDATE tb_store SET storeName = #{storeName},storeTag = #{storeTag},s_location = #{s_location},s_img = #{s_img},s_price = #{s_price} WHERE s_id = #{s_id}
+    </update>
+
+    <!--通过商家标签查询-->
+    <select id="getStoreListByTag" resultMap="storeMap">
+        SELECT * FROM tb_store WHERE storeTag = #{storeTag}
+    </select>
+</mapper>

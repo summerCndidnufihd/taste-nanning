@@ -1,0 +1,57 @@
+<!-- pages/Community/Community.wxml
+
+<!--index.wxml-->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <scroll-view scroll-x scroll-with-animation class="tab-view" scroll-left="{{scrollLeft}}">
+    <view wx:for="{{tabbar}}" wx:key="{{index}}" class="tab-bar-item {{currentTab==index ? 'active' : ''}}"
+      data-current="{{index}}" catchtap="swichNav">
+      <text class="tab-bar-title">{{item}}</text>
+    </view>
+  </scroll-view>
+
+  <!-- 内容 -->
+  <swiper class="tab-content" current="{{currentTab}}" bindchange="switchTab"
+    style="height:{{winHeight}}px">
+    <swiper-item wx:for="{{tabbar}}" wx:key="{{index}}">
+      <scroll-view scroll-y class="scoll-y">
+        <!--start 内容部分，可直接删除-->
+        <block wx:for="{{array}}" >
+
+
+<view class="news">
+<view class="news_out" >
+  <view class="news_in_1">
+    <image class="ui" src="/image/ui/1.webp"></image>
+    <view class="news_in_1_text">
+      <view class="news_in_1_text_title">wds5464565465</view>
+      <view class="news_in_1_text_address"></view>
+    </view>
+    <!-- <view class="news_in_1_buy">代购</view> -->
+  </view>
+      <navigator class="news_in_2" >
+      <view class="news_in_2_text"><text class="color" style="color:rgb(243, 145, 54);">#{{item.d_tag}}#</text> {{item.d_details}}</view>
+      <block class="news_in_2_image">
+        <image class="img" src="{{item.d_img}}"></image>
+      </block>
+    </navigator>
+  <view class="news_in_3">
+    <view class="postTime">{{item.d_date}}</view>
+      </view>
+  </view>
+<view class="devider"></view> 
+
+<view bindtap='fabu'>
+      <image class="news_icon" src="/image/fabu/1.webp"></image>
+  </view>
+</view>
+        </block>
+        <!--end 内容部分，可直接删除-->
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
+
+
+
+

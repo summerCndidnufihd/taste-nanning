@@ -1,0 +1,73 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/Community/Community",
+    "pages/Home/Home",
+    "pages/classify/classify",
+    "pages/cateList/cateList",
+    "pages/Community/index/index",
+    "pages/Community/fabu/fabu",
+    "pages/Community/lamian/lamian",
+    "pages/Community/xican/xican",
+    "pages/Community/huoguo/huoguo",
+    "pages/Community/shaokao/shaokao",
+    "pages/Community/xiaochi/xiaochi",
+    "pages/Community/naicha/naicha",
+    "pages/Community/tianpin/tianpin",
+    "pages/logs/logs",
+    "components/SearchInput/SearchInput",
+    "pages/index/Shops/Shops",
+    "pages/index/Shops/activity/activity",
+    "pages/index/Shops/activity/details/details",
+    "pages/index/Hot/Hot",
+    "pages/index/BBQ/BBQ",
+    "pages/index/Western/Western",
+    "pages/index/Western/activity/activity",
+    "pages/index/Western/activity/details/details",
+    "pages/Search/Search",
+    "pages/Search/Searching/Searching",
+    "pages/index/BBQ/activity/activity",
+    "pages/index/BBQ/activity/details/details"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF9966",
+    "navigationBarTitleText": "食味南宁",
+    "navigationBarTextStyle": "black"
+    
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#707070",
+    "selectedColor": "#FF9966",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/首页1.png",
+        "selectedIconPath": "/images/首页2.png"
+      
+      },
+      {
+        "pagePath": "pages/Community/Community",
+        "text": "社区",
+        "iconPath": "/images/社区1.png",
+        "selectedIconPath": "/images/社区2.png"
+      },
+      {
+        "pagePath": "pages/Home/Home",
+        "text": "我的",
+        "iconPath": "/images/我的1.png",
+        "selectedIconPath": "/images/我的2.png"
+      }
+    ]
+  },
+  "plugins": {
+    "brickLayout": {
+      "version": "0.2.0",
+      "provider": "wx3c042630f3cdc175"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

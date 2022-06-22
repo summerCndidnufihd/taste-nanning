@@ -1,0 +1,13 @@
+<!--pages/Search/Searching/Searching.wxml-->
+
+<!--列表-->
+<view class="list">
+      <view class="card" wx:for="{{4}}" wx:key="index">
+        <image class="cover" src="/images/Western/西餐肉1.jpg"></image>
+        <view class="info">
+          <text class="title">西餐肉</text>
+          <text class="price">¥68</text>
+          <text class="detail">有一点点肥的肉吃起来口感才更好。</text>
+        </view>
+      </view>
+  </view>

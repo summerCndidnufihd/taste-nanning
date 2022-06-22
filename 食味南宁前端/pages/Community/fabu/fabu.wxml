@@ -1,0 +1,27 @@
+<!--pages/fabu/fabu.wxml-->
+<view class="anniu"> 
+<button   class="anniu" bindtap="gotoindex">返回</button>
+<button class="anniu" >发布</button>
+</view>
+<view>
+<text>
+  #您对此菜品的评价
+</text>
+</view>
+
+
+<textarea  placeholder="输入您的第一条评论">
+
+</textarea>
+
+<text>
+  #发布您的图片
+</text>
+
+
+<button class="fabu" >
+  <image  class="fabu" src="/image/fabu/2.webp"> </image>
+</button>
+
+
+ 

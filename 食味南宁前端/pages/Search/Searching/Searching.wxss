@@ -1,0 +1,74 @@
+/* pages/Search/Searching/Searching.wxss */
+/*列表的样式*/
+page{
+  background-color: #fdac83;
+ /* background-color: rgb(211, 165, 241);*/
+
+}
+.list{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(238, 201, 201);
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+.card{
+  height: 250rpx;
+  width: 95%;
+  border-bottom: 1rpx solid #cdcdcd;
+  display: flex;
+  align-items: center ;
+}
+.cover{
+  height: 200rpx;
+  width: 200rpx;
+  border: 1rpx solid #cdcdcd;
+  border-radius: 15rpx;
+  flex-shrink: 0;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 20rpx;
+}
+.title{
+  color: #444444;
+  font-size:30rpx ;
+  font-weight: bold;
+}
+.price{
+  margin-top: 30rpx;
+  color: #d81e06;
+  font-size: 25rpx;
+}
+.detial{
+  color: #444444;
+  font-size: x-small;
+}
+
+/*食品图片*/
+.fall-container {
+  width: 100%;
+  display: flex;
+}
+.fall-left {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+}
+.fall-centre{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  
+}
+.fall-right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}

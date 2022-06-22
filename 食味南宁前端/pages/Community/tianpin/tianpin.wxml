@@ -1,0 +1,22 @@
+<!--pages/tianpin/tianpin.wxml-->
+<view>
+<image class="ui" src="/image/ui/7.webp"><text>wds55656565465</text></image>
+</view>
+
+<text>
+      <text class="color">#西餐#</text> 对这场浪漫的烛光晚餐充满了期待！
+店面低调 按门铃进入 二楼设有三桌
+靠窗位置氛围感十足 适合约会也可以聊天
+</text>
+
+
+
+  <image class="image" src="/image/tianpin/1.webp"></image>
+
+<text>
+店址：福建省南平市延平区205国道滨江南路205号(武夷名仕园3楼
+</text>
+
+<button  class="button"  bindtap="gotofabu">
+评价
+</button>

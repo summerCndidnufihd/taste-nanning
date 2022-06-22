@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <!--激活那些已经在spring容器里注册过的bean（无论是通过xml的方式还是通过package sanning的方式）上面的注解。-->
+    <context:annotation-config />
+    <!--指定的package下扫描以及注册javabean-->
+    <context:component-scan base-package="com.adc.nt"/>
+    <!--参数配置文件是以properties为后缀的-->
+    <context:property-placeholder location="classpath*:*.properties"/>
+    <!--自动注册spring mvc的一些bean，具体可百度详查-->
+    <mvc:annotation-driven/>
+    <!--进行静态资源的访问-->
+    <mvc:resources  location="/static/h-ui/" mapping="/static/h-ui/**"/>
+    <mvc:resources  location="/static/h-ui.admin/" mapping="/static/h-ui.admin/**"/>
+    <mvc:resources location="/upload/" mapping="/upload/**"/>
+    <mvc:resources  location="/temp/" mapping="/temp/**"/>
+
+    <!--数据库连接池，c3p0-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource " destroy-method="close">
+        <property name="driverClass" value="${driverClass}" />
+        <property name="jdbcUrl" value="${jdbcUrl}" />
+        <property name="user" value="${database_user}" />
+        <property name="password" value="${database_password}" />
+        <property name="acquireIncrement" value="1" />
+        <property name="initialPoolSize" value="5" />
+        <property name="maxPoolSize" value="20" />
+        <property name="minPoolSize" value="5" />
+        <property name="maxStatements" value="100" />
+        <property name="testConnectionOnCheckout" value="true" />
+    </bean>
+    <!--配置mybatis的sqlSessionFactory-->
+    <!--sql-map-config.xml是mybatis的相关配置，sql-mapping/*.xml是sql的映射文件-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:sql-map-config.xml" />
+        <property name="mapperLocations" value="classpath:sql-mapping/*.xml" />
+    </bean>
+    <!--配置扫描加了MybatisSqlMapping注解的interface，并生成mapper对象-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.adc.nt" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+        <property name="annotationClass" value="com.adc.nt.anotation.MybatisSqlMapping" />
+    </bean>
+    <!--spring的事务配置-->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <!-- 文件上传的解析器 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 上传图片的最大尺寸 10M-->
+        <property name="maxUploadSize" value="10485760" />
+        <!-- 默认编码 -->
+        <property name="defaultEncoding" value="utf-8" />
+    </bean>
+
+    <!--支持事务注解的（@Transactional）?-->
+    <tx:annotation-driven />
+    <!--声明自动为spring容器中那些配置@aspectJ切面的bean创建代理，织入切面-->
+    <aop:aspectj-autoproxy />
+    <!--注册controllerAspect的bean，这个bean用于拦截controller的异常-->
+    <bean id="controllerAspect" class="com.adc.nt.aspect.ControllerAspect" />
+
+    <!--视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--前缀-->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <!--后缀-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>

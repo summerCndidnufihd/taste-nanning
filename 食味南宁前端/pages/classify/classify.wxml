@@ -1,0 +1,43 @@
+ <!--*搜索跳转*-->
+
+
+
+
+
+<!--店铺-->
+<!--
+    <import src="../../templates/loading/loading.wxml"></import>
+    <header-nav navbar-data='{{nvabarData}}'></header-nav>
+-->
+<view  style='margin-top:{{height*2 + 20}}px;'>
+    <view class='clsaa_list_container' wx:for='{{classlits}}' wx:key='key'>
+        <view class='clsaa_list_title'>
+            {{item.title}}
+        </view>
+       
+        <view class='clsaa_list_item_container'>
+            <!--*热门店铺板块*-->
+            <view class='clsaa_list_item_icon' wx:for='{{item.entries}}' 
+            wx:for-item="twodata" wx:key='key' bindtap='gocateList' data-q='{{twodata.name}}' 
+            style="background-image: url('{{twodata.picurl}}'); background-size: 100% 100%;">
+            </view>
+
+            <!--*推荐店铺板块*-->
+            <view class='clsaa_list_item_icon' wx:for='{{item.entries1}}' 
+            wx:for-item="twodata" wx:key='key' bindtap='gocateList1' data-q='{{twodata.name}}' 
+            style="background-image: url('{{twodata.picurl}}'); background-size: 100% 100%;">
+            </view>
+
+            <!--*平价店铺板块*-->
+            <view class='clsaa_list_item_icon' wx:for='{{item.entries2}}' 
+            wx:for-item="twodata" wx:key='key' bindtap='gocateList2' data-q='{{twodata.name}}' 
+            style="background-image: url('{{twodata.picurl}}'); background-size: 100% 100%;">
+            </view>
+
+                <view class='clsaa_list_item_icon_title'>
+                    {{twodata.name}}
+                 </view>       
+            
+        </view>
+    </view>
+</view>

@@ -1,0 +1,27 @@
+<!--pages/index/Shops/activity/details/details.wxml-->
+
+<view class='fall-right'>
+      <!--详情卡片-->
+  <cover-view class="frame">  
+        
+          <view class="imagesize" backgroundColor="#08ffc8">
+              <image class="imagesize-icon" src="{{f_img}}"></image>
+          </view>
+  </cover-view>
+
+      <!--列表-->
+  <view class="list">
+      <view class="card" wx:key="index">
+        <!-- <image class="cover" src="{{f_img}}"></image> -->
+        <view class="info">
+          <text class="title">{{foodName}}</text>
+          <text class="price">￥{{f_price}}</text>
+          <text class="detail">{{f_details}}</text>
+          
+        </view>
+      </view>
+  </view>
+
+</view>
+
+

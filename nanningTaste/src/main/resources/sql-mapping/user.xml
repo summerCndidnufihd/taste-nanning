@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.adc.nt.dao.UserDao">
+    <resultMap id="userMap" type="com.adc.nt.model.User">
+        <id column="u_id" property="u_id"/>
+        <result column="userName" property="userName"/>
+        <result column="userPwd" property="userPwd"/>
+        <result column="userLocation" property="userLocation"/>
+        <result column="userAvatar" property="userAvatar"/>
+        <result column="userActor" property="userActor"/>
+    </resultMap>
+
+    <select id="countCommon" parameterType="com.adc.nt.model.User" resultType="int">
+        SELECT COUNT(1) from tb_user WHERE userName = #{userName}
+    </select>
+
+    <insert id="addUser" parameterType="com.adc.nt.model.User">
+        INSERT INTO tb_user (userName,userPwd,userLocation,userAvatar,userActor)
+        VALUES (#{userName},#{userPwd},#{userLocation},unix_timestamp(now()),#{userActor})
+    </insert>
+
+    <!---根据id删除-->
+    <delete id="delUser"  parameterType="int">
+        delete FROM tb_user WHERE u_id = #{u_id}
+    </delete>
+
+    <select id="getUserList" resultMap="userMap">
+        SELECT * FROM tb_user WHERE userName = #{userName}
+    </select>
+
+    <select id="allUser" resultMap="userMap">
+        SELECT * FROM tb_user
+    </select>
+
+    <!-- 查询用户 -->
+    <select id="selectByLoginNameAndPassword" resultMap="userMap" >
+        select * from tb_user where userName=#{userName} and userPwd=#{userPwd}
+    </select>
+
+</mapper>

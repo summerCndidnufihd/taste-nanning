@@ -1,0 +1,19 @@
+<!--pages/shaokao/shaokao.wxml-->
+<view>
+<image class="ui" src="/image/ui/4.webp"><text>wds55656565465</text></image>
+</view>
+
+<text>
+      <text class="color">#烧烤#</text> 这家餐厅环境很好，非常干净整洁，食物不仅外形美观，重要的是味道非常棒，色味俱佳。做法保留了食材原有的味道，清新爽口。而且菜品选择非常多，价格也不高，适合带着家人一起去。
+</text>
+
+
+  <image class="image" src="/image/shaokao/1.webp"></image>
+
+<text>
+店址：福建省南平市延平区205国道滨江南路205号(武夷名仕园3楼
+</text>
+
+<button  class="button"  bindtap="gotofabu">
+评价
+</button>

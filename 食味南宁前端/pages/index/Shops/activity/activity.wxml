@@ -1,0 +1,27 @@
+<!--pages/index/Shops/activity/activity.wxml-->
+
+    <!--导航搜索栏前的图片-->
+  
+      <cover-view class="wrap">
+       <view class='swipe-wrap'>
+          <image class="icon-img" mode='aspectFill' src='{{s_img}}'></image>
+        </view>
+      </cover-view> 
+      <view class="info">
+          <view class="name">{{storeName}}</view>
+          <view class="address">{{s_location}}</view>   
+        </view>
+
+
+    <!--食品图片-->      
+    
+        <view class='fall-container'>
+              <!--瀑布流内容卡片-->
+              <block wx:for="{{array}}">
+              <view class="aa">
+              <image class="icon-img" bindtap="ccc" src="{{item.f_img}}" data-f_id="{{item.f_id}}"/>
+              <text>{{item.foodName}}</text>
+            </view>
+          </block>
+        </view>
+       

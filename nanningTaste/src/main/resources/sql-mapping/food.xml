@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.adc.nt.dao.FoodDao">
+    <resultMap id="foodMap" type="com.adc.nt.model.Food">
+        <id column="f_id" property="f_id"/>
+        <result column="foodName" property="foodName"/>
+        <result column="foodTag" property="foodTag"/>
+        <result column="f_price" property="f_price"/>
+        <result column="f_img" property="f_img"/>
+        <result column="f_details" property="f_details"/>
+        <result column="s_id" property="s_id"/>
+    </resultMap>
+
+    <select id="countCommon" parameterType="com.adc.nt.model.Food" resultType="int">
+        SELECT COUNT(1) from tb_food WHERE f_id = #{f_id}
+    </select>
+
+    <!--添加-->
+    <insert id="addFood" parameterType="com.adc.nt.model.Food">
+        INSERT INTO tb_food (foodName,foodTag,f_price,f_img,f_details,s_id)
+        VALUES (#{foodName},#{foodTag},#{f_price},#{f_img},#{f_details},#{s_id})
+    </insert>
+
+    <!--根据id查找-->
+    <select id="getFoodById" resultMap="foodMap">
+        SELECT * FROM tb_food WHERE f_id = #{f_id}
+    </select>
+
+    <!--根据名称模糊查找-->
+    <select id="getFoodByName" resultMap="foodMap">
+        SELECT * FROM tb_food
+        <where>
+            <if test="foodName != null and foodName != ''">
+                AND foodName LIKE CONCAT(CONCAT('%',#{foodName},'%'))
+            </if>
+        </where>
+        ORDER BY f_id
+    </select>
+
+    <!--根据标签查找-->
+    <select id="getFoodByFoodTag" resultMap="foodMap">
+        SELECT * FROM tb_food WHERE foodTag = #{foodTag}
+    </select>
+
+    <!--查找所有-->
+    <select id="allFood" resultMap="foodMap">
+        SELECT * FROM tb_food
+    </select>
+
+    <!---根据id删除-->
+    <delete id="delFood"  parameterType="int">
+        delete FROM tb_food WHERE f_id = #{f_id}
+    </delete>
+
+    <!---根据id更新-->
+    <update id="editFood" parameterType="com.adc.nt.model.Food">
+        update tb_food set foodName = #{foodName},foodTag=#{foodTag},f_price=#{f_price},f_img=#{f_img},f_details=#{f_details},s_id = #{s_id}  WHERE f_id = #{f_id}
+    </update>
+
+</mapper>

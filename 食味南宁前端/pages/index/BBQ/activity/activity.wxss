@@ -1,0 +1,55 @@
+/* pages/index/BBQ/activity/activity.wxss */
+/*店铺地址简介*/
+
+.list{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(238, 201, 201);
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 20rpx;
+}
+.name{
+  color: #444444;
+  font-size:36rpx ;
+  font-weight: bold;
+}
+.time{
+  margin-top: 30rpx;
+  color: #d81e06;
+  font-size: 25rpx;
+}
+.address{
+  color: #444444;
+  font-size: x-small;
+}
+
+
+/*食品图片*/
+.fall-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.fall-left {
+  display: flex;
+  flex-direction: column;
+}
+.fall-centre{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+.fall-right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}

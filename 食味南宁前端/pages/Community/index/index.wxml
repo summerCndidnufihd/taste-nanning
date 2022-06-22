@@ -1,0 +1,97 @@
+<!--index.wxml-->
+
+<view>
+<button class="anniu" size="mini" bindtap="gotoxican"  >
+  <image class="main" src="/image/main/1.jpg"> </image>
+西餐
+</button>
+
+<button class="anniu" size="mini" bindtap="gotohuoguo"  >
+  <image class="main" src="/image/main/2.jpg"> </image>
+火锅
+</button>
+
+<button class="anniu" size="mini" bindtap="gotoshaokao"  >
+  <image class="main" src="/image/main/3.jpg"> </image>
+烧烤
+</button>
+
+<button class="anniu" size="mini" bindtap="gotoxiaochi"  >
+  <image class="main" src="/image/main/4.jpg"> </image>
+小吃
+</button>
+</view>
+
+
+<view>
+<button class="anniu" size="mini" bindtap="gotonaicha"  >
+  <image class="main" src="/image/main/5.jpg"> </image>
+奶茶
+</button>
+
+<button class="anniu" size="mini" bindtap="gototianpin"  >
+  <image class="main" src="/image/main/7.jpg"> </image>
+甜品
+</button>
+
+<button class="anniu" size="mini" bindtap="gotolamian"  >
+  <image class="main" src="/image/main/6.jpg"> </image>
+拉面
+</button>
+</view>
+
+
+<view class="anniu">
+
+<text class="zxfb">
+#最新发布
+</text>
+
+  <button class="anniu" size="mini" bindtap="gotofabu"  >
+  <image class="fabu" src="/image/fabu/1.webp"> </image>
+发布
+</button>
+
+</view>
+
+<view>
+<image class="ui" src="/image/ui/1.webp"><text>wds5464565465</text></image>
+</view>
+
+<text>
+      <text class="color">#披萨#</text> 它既保留了中国的传统风味，又让西方文化完美地展现与此。难怪披萨是我最喜欢的美食
+</text>
+
+
+
+  <image class="image" src="/image/pisa/1.webp"></image>
+
+<text>
+店址：福建省南平市延平区胜利街183-185号
+</text>
+
+
+
+<button  class="xxx" bindtap="changeYL"   >
+  <image class="xxx" src="/image/pinglun/2.PNG"></image>
+</button>
+
+<view class="modal-mask" bindtap="hideModal"  wx:if="{{showModal}}">
+</view>
+ 
+<view  class="modal-dialog" wx:if="{{showModal}}">
+<view  class="bbb">
+  <button    class="ccc"bindtap="hideModal" >
+    <image  class="aaa" src="/image/pinglun/3.webp"></image>
+  </button>
+</view>
+
+  <image class='view-image'src="/image/pinglun/1.PNG"></image>
+  <view class="fb">
+  <input placeholder="说点好听的~"></input>
+  <button  class="fabiao"  bindtap="hideModal" >
+    发表
+  </button>
+  </view>
+
+</view>

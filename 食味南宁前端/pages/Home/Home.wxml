@@ -1,0 +1,19 @@
+<!--pages/Home/Home.wxml-->
+<!--<text>pages/Home/Home.wxml</text>-->
+<!--
+<view class="usermotto">
+  <image src="/images/我的2.png" class="i1"></image>
+  <text class="user-motto">{{motto}}</text>
+</view>
+-->
+
+
+<view>
+{{list.topinfo.ListName}}
+<image src="{{list.topinfo.MacDetailPicUrl}}" class='in-image'>
+</image>
+</view>
+
+<view wx:for="{{list.songlist}}" wx:key="index"><!-- 取到songlist里面的内容并且进行循环 -->
+{{item.data.albumname}}
+</view>

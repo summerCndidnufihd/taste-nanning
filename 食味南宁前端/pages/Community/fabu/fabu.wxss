@@ -1,0 +1,15 @@
+/* pages/fabu/fabu.wxss */
+.fabu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 128rpx;
+  height: 128rpx;
+}
+
+.anniu{
+  display: flex;
+  background-color: transparent; 
+  width:800rpx;
+  height: 180rpx;
+}

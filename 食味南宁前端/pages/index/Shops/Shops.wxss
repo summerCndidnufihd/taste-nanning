@@ -1,0 +1,95 @@
+/* pages/index/Shops/Shops.wxss */
+/**index.wxss**/
+.nav{
+  display: flex;
+  flex-direction: row;
+  text-align:center
+}
+.nav-item{
+  width: 25%;
+  margin-top:20px;
+  font-size: 12px;
+}
+.hr{
+  height: 5px;
+  background-color: #cccccc;
+  margin-top: 10px;
+  opacity: 0.2
+}
+.head{
+  display: flex;
+  height: 20px;
+  flex-direction: row;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #999999;
+}
+.right{
+  position: absolute;
+  right: 10px;
+  color: #cccccc
+}
+.hr2{
+  height: 2px;
+  background-color: #cccccc;
+  opacity: 0.2;
+
+}
+.item{
+  width: auto;
+  height:200rpx ;
+  margin-right: 10px;
+  border-radius: 6px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+.item image{
+  margin: 7px;
+  width: 100px;
+  height: 85px;
+  border-radius: 3px;
+}
+.desc{
+  /* margin-left: 7px;
+  line-height: 30px; */
+  width: 300px;
+}
+.title{
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: large;
+  width: 180px;
+  margin-top: 4px;
+  overflow:hidden;
+  /*不换行*/
+  white-space:nowrap;
+  /*添加...*/
+  text-overflow:ellipsis;
+}
+.count{
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  margin-top: 20px;
+  overflow: hidden;
+  color: #757373;
+}
+.juli{
+  position: absolute;
+  right: 35px;
+}
+.renjun{
+  /* position: absolute; */
+  width: 60px;
+  /* margin-top: 2px; */
+  margin-right: 10px;
+  float: right;
+  font-size: 15px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

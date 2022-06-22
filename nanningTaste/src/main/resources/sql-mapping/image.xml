@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.adc.nt.dao.ImageDao">
+    <resultMap id="imageMap" type="com.adc.nt.model.Image">
+        <id column="i_id" property="i_id"/>
+        <result column="f_id" property="f_id"/>
+        <result column="fImg" property="fImg"/>
+        <result column="s_id" property="s_id"/>
+        <result column="u_id" property="u_id"/>
+    </resultMap>
+
+    <select id="countCommon" parameterType="com.adc.nt.model.Image" resultType="int">
+        SELECT COUNT(1) FROM tb_image WHERE i_id = #{i_id}
+    </select>
+    <!--添加-->
+    <insert id="save" parameterType="com.adc.nt.model.Image">
+        INSERT INTO tb_image (i_id,fImg,f_id,u_id)
+        VALUES (#{i_id},#{fImg},#{f_id},#{u_id})
+    </insert>
+    <!--按用户id查找-->
+    <select id="getImageByU_id" resultMap="imageMap">
+        SELECT * FROM tb_image WHERE u_id = #{u_id}
+    </select>
+    <!--按食物id查找-->
+    <select id="getImageByF_id" resultMap="imageMap">
+        SELECT * FROM tb_image WHERE f_id = #{f_id}
+    </select>
+    <!--按图片id查找-->
+    <select id="getImageById" resultMap="imageMap">
+        SELECT * FROM tb_image WHERE i_id = #{i_id}
+    </select>
+    <!--查找所有-->
+    <select id="allImage" resultMap="imageMap">
+        SELECT * FROM tb_image
+    </select>
+    <!---根据id删除-->
+    <delete id="delImage"  parameterType="int">
+        delete FROM tb_image WHERE i_id = #{i_id}
+    </delete>
+</mapper>

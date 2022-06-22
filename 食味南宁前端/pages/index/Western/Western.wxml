@@ -1,0 +1,32 @@
+<!--pages/index/Western/Western.wxml-->
+<import src="../templete/templete" />
+<view class="content">
+<import src="../templete/templete" />
+<view class="head">
+<view>店铺</view>
+<view class="right">></view>
+</view>
+<view class="list">
+<template is="cooks" data="{{array}}" />
+</view>
+</view>
+
+<template name="cooks">
+<block wx:for="{{array}}">
+  <view class="item" bindtap="seeDetail" id="0" data-s_id="{{item.s_id}}">
+    <image src="{{item.s_img}}" style="width:75px;height:58px;"></image>
+
+  <view class="desc">
+    <view class="renjun">￥{{item.s_price}}</view>
+    <view class="title">{{item.storeName}}</view>
+
+    <view class="count">
+      <view>{{item.s_location}}</view>
+      <view class="juli">{{item.juli}}</view>
+    </view>
+  </view>
+</view>
+  <view class="hr2"></view>
+</block>
+</template>
+
